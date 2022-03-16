@@ -42,8 +42,6 @@ class AppTheme {
     backgroundColor: primary,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: primary,
-      elevation: 0,
-      focusElevation: 1,
       focusColor: Colors.transparent,
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
@@ -58,7 +56,7 @@ class AppTheme {
     checkboxTheme: CheckboxThemeData(
       checkColor: MaterialStateProperty.all(primary),
     ),
-    appBarTheme: const AppBarTheme(elevation: 0),
+    appBarTheme: const AppBarTheme(elevation: 2),
     accentColor: secondary,
     buttonColor: primary,
   );
