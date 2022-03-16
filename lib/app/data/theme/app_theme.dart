@@ -33,8 +33,11 @@ class AppTheme {
         color: primary,
         fontWeight: FontWeight.w400,
       ),
-      headline6:
-          TextStyle(color: primary, fontWeight: FontWeight.w600, fontSize: 16),
+      headline6: TextStyle(
+        color: primary,
+        fontWeight: FontWeight.w700,
+        fontSize: 18,
+      ),
     ),
     primaryColor: primary,
     primaryColorLight: primary,
