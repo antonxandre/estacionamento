@@ -1,18 +1,19 @@
-import 'package:estacionamento/app/modules/home/views/disponiveis_view.dart';
-import 'package:estacionamento/app/modules/home/views/ocupadas_view.dart';
+import 'package:estacionamento/app/modules/home/views/entradas_view.dart';
+import 'package:estacionamento/app/modules/home/views/saidas_view.dart';
 import 'package:estacionamento/app/modules/home/views/todas_view.dart';
+import 'package:estacionamento/app/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final labelStyle = Theme.of(context).textTheme.headline6;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Inicio'),
+        title: const Text(Strings.homeTitle),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -21,23 +22,18 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Disponíveis', style: Theme.of(context).textTheme.headline6),
-            DisponiveisView(
-              vagas: controller.vagasDisponiveis,
-              onVagaPressed: controller.adicionarVagaDisponivel,
+            Text(Strings.labelEntrada, style: labelStyle),
+            EntradasView(
+              vagas: controller.vagasEntradas,
+              onVagaPressed: controller.marcarVagaComoSaida,
+              addNewEntradaAction: controller.addNewEntrada,
             ),
-            Text(
-              'Ocupadas',
-              style: Theme.of(context).textTheme.headline6,
+            Text(Strings.labelSaida, style: labelStyle),
+            SaidasView(
+              vagas: controller.vagasSaidas,
+              onVagaPressed: controller.marcarVagaFinalizada,
             ),
-            OcupadasView(
-              vagas: controller.vagasOcupadas,
-              onVagaPressed: controller.adicionarVagaOcupada,
-            ),
-            Text(
-              'Todas',
-              style: Theme.of(context).textTheme.headline6,
-            ),
+            Text(Strings.labelHistorico, style: labelStyle),
             TodasView(
               vagas: controller.vagasTodas,
             ),

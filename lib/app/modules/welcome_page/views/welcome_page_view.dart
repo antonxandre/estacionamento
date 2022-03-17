@@ -1,6 +1,7 @@
 import 'package:estacionamento/app/data/components/app_button.dart';
-import 'package:estacionamento/app/data/theme/app_theme.dart';
 import 'package:estacionamento/app/routes/app_pages.dart';
+import 'package:estacionamento/app/utils/strings.dart';
+import 'package:estacionamento/app/utils/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,7 @@ class WelcomePageView extends GetView {
   }
 
   Text _buildWelcomeTitle() => const Text(
-        'Bem vindo(a)!\n Toque em "Entrar" para continuar.',
+        Strings.welcomeLabelText,
         textAlign: TextAlign.center,
         style: TextStyle(
           color: AppTheme.primary,
@@ -34,7 +35,7 @@ class WelcomePageView extends GetView {
       );
 
   AppButton _buildFAB() => AppButton(
-        text: 'Entrar',
+        text: Strings.entrarButtonText,
         onTap: () => Get.offNamed(Routes.HOME),
       );
 }
