@@ -22,17 +22,25 @@ class HomeView extends GetView<HomeController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Disponíveis', style: Theme.of(context).textTheme.headline6),
-            const DisponiveisView(),
+            DisponiveisView(
+              vagas: controller.vagasDisponiveis,
+              onVagaPressed: controller.adicionarVagaDisponivel,
+            ),
             Text(
               'Ocupadas',
               style: Theme.of(context).textTheme.headline6,
             ),
-            const OcupadasView(),
+            OcupadasView(
+              vagas: controller.vagasOcupadas,
+              onVagaPressed: controller.adicionarVagaOcupada,
+            ),
             Text(
               'Todas',
               style: Theme.of(context).textTheme.headline6,
             ),
-            const TodasView(),
+            TodasView(
+              vagas: controller.vagasTodas,
+            ),
           ],
         ),
       ),

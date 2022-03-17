@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 class VagaModel {
+  int id;
   String name;
   bool occupied;
   DateTime enterAtl;
   DateTime leftAt;
   VagaModel({
+    required this.id,
     required this.name,
     required this.occupied,
     required this.enterAtl,
@@ -13,12 +15,14 @@ class VagaModel {
   });
 
   VagaModel copyWith({
+    int? id,
     String? name,
     bool? occupied,
     DateTime? enterAtl,
     DateTime? leftAt,
   }) {
     return VagaModel(
+      id: id ?? this.id,
       name: name ?? this.name,
       occupied: occupied ?? this.occupied,
       enterAtl: enterAtl ?? this.enterAtl,
@@ -28,6 +32,7 @@ class VagaModel {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
       'occupied': occupied,
       'enterAtl': enterAtl.millisecondsSinceEpoch,
@@ -37,6 +42,7 @@ class VagaModel {
 
   factory VagaModel.fromMap(Map<String, dynamic> map) {
     return VagaModel(
+      id: map['id']?.toInt() ?? 0,
       name: map['name'] ?? '',
       occupied: map['occupied'] ?? false,
       enterAtl: DateTime.fromMillisecondsSinceEpoch(map['enterAtl']),
@@ -51,7 +57,7 @@ class VagaModel {
 
   @override
   String toString() {
-    return 'VagaModel(name: $name, occupied: $occupied, enterAtl: $enterAtl, leftAt: $leftAt)';
+    return 'VagaModel(id: $id, name: $name, occupied: $occupied, enterAtl: $enterAtl, leftAt: $leftAt)';
   }
 
   @override
@@ -59,6 +65,7 @@ class VagaModel {
     if (identical(this, other)) return true;
 
     return other is VagaModel &&
+        other.id == id &&
         other.name == name &&
         other.occupied == occupied &&
         other.enterAtl == enterAtl &&
@@ -67,7 +74,8 @@ class VagaModel {
 
   @override
   int get hashCode {
-    return name.hashCode ^
+    return id.hashCode ^
+        name.hashCode ^
         occupied.hashCode ^
         enterAtl.hashCode ^
         leftAt.hashCode;

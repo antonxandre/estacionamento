@@ -14,11 +14,15 @@ class CardOcupacaoNew extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Card(
-          child: Icon(
-        Icons.add,
-        color: color,
-      )),
+      child: SizedBox(
+        height: 60,
+        width: 60,
+        child: Card(
+            child: Icon(
+          Icons.add,
+          color: color,
+        )),
+      ),
     );
   }
 }
@@ -39,13 +43,17 @@ class CardOcupacao extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Card(
-          color: color,
-          child: const Center(
-              child: Text(
-            '001',
-            style: TextStyle(color: Colors.white),
-          ))),
+      child: SizedBox(
+        height: 60,
+        width: 60,
+        child: Card(
+            color: color,
+            child: Center(
+                child: Text(
+              name,
+              style: const TextStyle(color: Colors.white),
+            ))),
+      ),
     );
   }
 }
