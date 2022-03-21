@@ -21,7 +21,7 @@ class SaidasView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(8, 8, 8, 12),
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 12),
         child: Obx(() => vagas.isEmpty
             ? const Center(
                 child: Padding(

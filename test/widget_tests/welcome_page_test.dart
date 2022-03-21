@@ -1,5 +1,4 @@
 import 'package:estacionamento/app/data/components/app_button.dart';
-import 'package:estacionamento/app/modules/welcome_page/views/welcome_page_view.dart';
 import 'package:estacionamento/app/routes/app_pages.dart';
 import 'package:estacionamento/app/utils/theme/app_theme.dart';
 import 'package:flutter_test/flutter_test.dart';

@@ -12,6 +12,7 @@ class Dialogs {
     required String title,
     required Widget content,
     required Function action,
+    bool exitAutomatically = true,
   }) {
     return showDialog<bool>(
         context: Get.context!,
@@ -43,7 +44,7 @@ class Dialogs {
                   )),
               IconButton(
                   onPressed: () {
-                    Navigator.of(context).pop(true);
+                    if (exitAutomatically) Navigator.of(context).pop(true);
                     action();
                   },
                   icon: const Icon(

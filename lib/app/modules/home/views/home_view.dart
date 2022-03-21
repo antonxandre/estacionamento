@@ -12,34 +12,44 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final labelStyle = Theme.of(context).textTheme.headline6;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(Strings.homeTitle),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(Strings.labelEntrada, style: labelStyle),
-            EntradasView(
-              vagas: controller.vagasEntradas,
-              onVagaPressed: controller.marcarVagaComoSaida,
-              addNewEntradaAction: controller.addNewEntrada,
-            ),
-            Text(Strings.labelSaida, style: labelStyle),
-            SaidasView(
-              vagas: controller.vagasSaidas,
-              onVagaPressed: controller.marcarVagaFinalizada,
-            ),
-            Text(Strings.labelHistorico, style: labelStyle),
-            TodasView(
-              vagas: controller.vagasTodas,
-            ),
-          ],
+        appBar: AppBar(
+          title: const Text(Strings.homeTitle),
+          centerTitle: true,
         ),
-      ),
-    );
+        body: Obx(
+          () => SingleChildScrollView(
+            controller: controller.scrollController.value,
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(Strings.labelEntrada, style: labelStyle),
+                EntradasView(
+                  vagas: controller.vagasEntradas,
+                  onVagaPressed: controller.marcarVagaComoSaida,
+                  addNewEntradaAction: controller.addNewEntrada,
+                ),
+                Text(Strings.labelSaida, style: labelStyle),
+                SaidasView(
+                  vagas: controller.vagasSaidas,
+                  onVagaPressed: controller.marcarVagaFinalizada,
+                ),
+                Text(Strings.labelHistorico, style: labelStyle),
+                TodasView(
+                  vagas: controller.vagasTodas,
+                ),
+              ],
+            ),
+          ),
+        ),
+        floatingActionButton: Obx(
+          () => !controller.showTopButton.value
+              ? const SizedBox()
+              : FloatingActionButton(
+                  onPressed: controller.scrollToTop,
+                  child: const Icon(Icons.arrow_upward),
+                ),
+        ));
   }
 }

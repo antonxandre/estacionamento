@@ -15,8 +15,8 @@ class CardOcupacaoNew extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        height: 70,
-        width: 70,
+        height: 80,
+        width: 80,
         child: Card(
             child: Icon(
           Icons.add,
@@ -44,15 +44,15 @@ class CardOcupacao extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        height: 70,
-        width: 70,
+        height: 80,
+        width: 80,
         child: Card(
             color: color,
             child: Center(
                 child: Text(
               name,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white, fontSize: 13),
             ))),
       ),
     );

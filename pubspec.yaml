@@ -1,7 +1,7 @@
 name: estacionamento
 version: 1.0.0+1
 publish_to: none
-description: A new Flutter project.
+description: Aplicação para cadastro de vagas de entradas e saidas em um estacionamento.
 environment: 
   sdk: '>=2.12.0 <3.0.0'
 
@@ -21,4 +21,3 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
-

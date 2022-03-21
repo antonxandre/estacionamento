@@ -4,7 +4,6 @@ import 'package:estacionamento/app/utils/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:estacionamento/app/data/models/vaga_model.dart';
-import 'package:intl/intl.dart';
 
 class TodasView extends StatelessWidget {
   final RxList<VagaModel> vagas;
@@ -15,13 +14,9 @@ class TodasView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 8, 8, 12),
+      padding: const EdgeInsets.fromLTRB(0, 8, 0, 12),
       child: Obx(() => vagas.isEmpty
-          ? const Center(
-              child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(Strings.historicoVazio),
-            ))
+          ? const Center(child: Text(Strings.historicoVazio))
           : ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -45,15 +40,15 @@ class TodasView extends StatelessWidget {
           ),
           subtitle: Text(
               '${formatYmdHmDate(vaga.enterAt)}\n${formatYmdHmDate(vaga.leftAt)}\n'),
-          trailing: vaga.hasLeft
+          trailing: vaga.hasLeft && !vaga.finalized
               ? const Icon(
                   Icons.arrow_right,
                   color: AppTheme.success,
                 )
               : vaga.finalized
                   ? const Icon(
-                      Icons.check_box,
-                      color: AppTheme.error,
+                      Icons.check_circle,
+                      color: AppTheme.primary,
                     )
                   : const Icon(
                       Icons.arrow_left,
