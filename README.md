@@ -9,9 +9,9 @@ Este desafio contempla o desenvolvimento de uma aplicação para que o usuário 
 
 
 ## Imagens do software
-![Tela de boas vindas](https://i.ibb.co/ygStvvx/1.gif =300x200)
-![Cadastro de entrada / saída](https://i.ibb.co/zrk8q7g/2.gif =300x200)
-![Histórico](https://i.ibb.co/TcP12cK/3.gif =300x200)
+![Tela de boas vindas](https://i.ibb.co/ygStvvx/1.gif )
+![Cadastro de entrada / saída](https://i.ibb.co/zrk8q7g/2.gif)
+![Histórico](https://i.ibb.co/TcP12cK/3.gif)
 
 
 ## Testes
